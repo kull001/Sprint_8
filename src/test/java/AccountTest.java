@@ -42,8 +42,18 @@ public class AccountTest {
         assertFalse(account.checkNameToEmboss());
     }
     @Test
-    public void checkNameToEmbossSendName() {
+    public void checkNameToEmbossSendNameContainsOneSpace() {
         account = new Account("A B C");
+        assertFalse(account.checkNameToEmboss());
+    }
+    @Test
+    public void checkNameToEmbossSendNameStartNotSpace() {
+        account = new Account(" B C");
+        assertFalse(account.checkNameToEmboss());
+    }
+    @Test
+    public void checkNameToEmbossSendNameEndNotSpace() {
+        account = new Account("A B ");
         assertFalse(account.checkNameToEmboss());
     }
 }
